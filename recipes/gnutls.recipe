@@ -1,0 +1,54 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+from cerbero.utils import shell
+
+class Recipe(recipe.Recipe):
+    name = 'gnutls'
+    version = '3.4.9'
+    maj_ver = '.'.join(version.split('.')[0:2])
+    url = 'ftp://ftp.gnutls.org/gcrypt/{0}/v{1}/{0}-{2}.tar.xz'.format(name, maj_ver, version)
+    stype = SourceType.TARBALL
+    # main library is LGPLv2+ and binaries is GPLv3+ and defined below
+    licenses = [License.LGPLv2Plus]
+    configure_options = "--enable-local-libopts --disable-guile --disable-openssl-compatibility \
+        --without-p11-kit --enable-static --enable-zlib --enable-shared --disable-doc"
+    deps = ['zlib', 'nettle', 'libtasn1']
+    # GnuTLS uses error.h, which is a GNU extension only available with glibc
+    # bionic-fixup provides that to us for all platforms
+    platform_deps = {
+        Platform.WINDOWS: ['bionic-fixup'],
+        Platform.ANDROID: ['bionic-fixup'],
+        Platform.IOS: ['bionic-fixup'],
+        Platform.DARWIN: ['bionic-fixup']
+    }
+    patches = [name + "/0001-configure-vasprintf-is-defined-in-stdio.h.patch",
+               name + "/0002-configure-Android-is-ELF-too.patch",
+               name + "/0003-Disable-ncrypt-support.patch",
+               name + "/0004-Stop-using-weak-linked-_gnutls_global_init_skip-in-l.patch"]
+    autoreconf = True
+
+    files_libs = ['libgnutls', 'libgnutlsxx']
+    files_bins = ['gnutls-cli', 'gnutls-serv', 'gnutls-cli-debug']
+    licenses_bins = [License.GPLv3]
+    files_devel = ['lib/pkgconfig/gnutls.pc', 'include/gnutls']
+    files_lang = ['gnutls']
+
+    def prepare(self):
+        if self.config.target_platform == Platform.WINDOWS:
+            self.configure_options += ' --enable-threads=win32'
+            self.can_use_configure_cache = False
+        if self.config.target_platform == Platform.DARWIN:
+            self.configure_options += ' --disable-hardware-acceleration'
+        if self.config.target_platform == Platform.ANDROID:
+            self.configure_options += ' --disable-cxx'
+        if self.config.target_platform == Platform.IOS:
+            self.configure_options += ' --disable-cxx'
+
+    def configure(self):
+        if self.config.target_platform == Platform.ANDROID:
+            # On Android, SIZE_MAX is define under limits.h
+            shell.replace(os.path.join(self.build_dir, 'gl', 'read-file.c'),
+                {'#include <stdint.h>':
+                 '#include <limits.h>'})
+        # Call configure from the base class
+        super(recipe.Recipe, self).configure()

@@ -1,0 +1,48 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+import shutil
+
+from cerbero.tools.libtool import LibtoolLibrary
+
+class Recipe(recipe.Recipe):
+    name = 'taglib'
+    version = '1.7.2'
+    stype = SourceType.TARBALL
+    url = 'https://taglib.github.io/releases/taglib-1.7.2.tar.gz'
+    # either LGPLv2.1 or MPLv1.1
+    licenses = [License.LGPLv2_1]
+    configure_options = '-DWITH_MP4=ON -DWITH_ASF=ON -DENABLE_STATIC=1'
+    btype = BuildType.CMAKE
+    platform_deps = {Platform.ANDROID: ['gnustl']}
+    patches = ['taglib/0001-taglib-install-taglob.pc-on-windows-too.patch',
+               'taglib/0002-fix-android-build-with-stlport.patch',
+               'taglib/0003-taglib.pc-require-stlport-for-android.patch',
+               'taglib/0004-build-shared-and-static-libraries.patch',
+               'taglib/0005-Use-gnustl-instead-of-stlport.patch',
+               'taglib/0006-Link-C-bindings-with-STL-too.patch',
+               'taglib/0007-Fix-pkg-config-file.patch']
+
+    files_libs = ['libtag', 'libtag_c']
+    files_devel = ['include/taglib', 'lib/pkgconfig/taglib.pc', 'lib/pkgconfig/taglib_c.pc']
+
+    def prepare(self):
+        if self.config.target_platform == Platform.WINDOWS:
+            self.configure_options += ' -DWIN32=1'
+        if self.config.target_platform == Platform.ANDROID:
+            # configure for android
+            self.configure_options += ' -DANDROID_NDK=1 '
+            self.append_env['CXXFLAGS'] = " -frtti "
+        self.configure_options += ' -DZLIB_ROOT=%s ' % self.config.prefix
+
+    def install(self):
+        super(recipe.Recipe, self).install()
+        shutil.move(
+                os.path.join(self.config.prefix, 'lib', 'libtag_static.a'),
+                os.path.join(self.config.prefix, 'lib', 'libtag.a'))
+
+    def post_install(self):
+        deps = ['z']
+        if self.config.target_platform == Platform.ANDROID:
+            deps.append('gnustl')
+        libtool_la = LibtoolLibrary('tag', 1, 7, None, self.config.libdir,
+                self.config.target_platform, deps)
+        libtool_la.save()
