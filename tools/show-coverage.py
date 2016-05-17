@@ -1,3 +1,5 @@
+# @Sniper show the current percent of progress
+
 import os
 import re
 import sys
@@ -86,7 +88,7 @@ class Coverage:
         self.total_lines += p.lines
         self.total_covered += p.covered
 
-
+# @Sniper is there anyone call this func?
 def main(args):
     c = Coverage()
     files = args[1:]

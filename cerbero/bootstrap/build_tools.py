@@ -21,7 +21,8 @@ import os
 from cerbero.config import Config, Platform, DistroVersion
 from cerbero.bootstrap import BootstrapperBase
 
-# @Sniper what does oven do ?
+# @Sniper oven come from ./cerbero/cerbero/build/oven.py:46
+# This oven cooks recipes with all their ingredients
 from cerbero.build.oven import Oven
 
 # @Sniper how does the cook being with the CookBook
@@ -102,6 +103,7 @@ class BuildTools (BootstrapperBase):
             os.makedirs(config.sources)
 
         # @Sniper Here is where the CookBook and oven make sense.
+		# ./cerbero/cerbero/config.py:172 define do_setup_env(self) here
         config.do_setup_env()
         cookbook = CookBook(config)
         recipes = self.BUILD_TOOLS

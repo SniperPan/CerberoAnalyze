@@ -23,6 +23,6 @@ os.environ['CERBERO_UNINSTALLED']='1'
 # sys.argv[0], All maybe relative
 sys.path.insert(0, os.path.dirname(__file__))
 
-
+# @Sniper here is the entry of all scripts
 from cerbero.main import main
 main()

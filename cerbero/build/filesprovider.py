@@ -28,7 +28,8 @@ import inspect
 from cerbero.config import Platform
 from cerbero.utils import shell
 
-
+# @Sniper when will this class work?
+# linuxconfig and win32config diff
 class FilesProvider(object):
     '''
     List files by categories using class attributes named files_$category and

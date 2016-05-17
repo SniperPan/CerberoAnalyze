@@ -84,7 +84,7 @@ sys.argv = [x for x in sys.argv if not x.startswith('--package=') and
             not x.startswith('--recipe=')]
 
 
-#Fill manifest
+# Fill manifest
 # manifest.in.in -> ./cerbero/manifest.in.in
 # where is the MANIFEST.in
 shutil.copy('MANIFEST.in.in', 'MANIFEST.in')

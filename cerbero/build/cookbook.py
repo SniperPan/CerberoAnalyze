@@ -45,7 +45,6 @@ from cerbero.utils import _, shell, parse_file
 from cerbero.utils import messages as m
 from cerbero.build import recipe as crecipe
 
-
 COOKBOOK_NAME = 'cookbook'
 COOKBOOK_FILE = os.path.join(CONFIG_DIR, COOKBOOK_NAME)
 
@@ -87,6 +86,7 @@ class RecipeStatus (object):
         return "Steps: %r Needs Build: %r" % (self.steps, self.needs_build)
 
 
+# @Sniper object is config file
 class CookBook (object):
     '''
     Stores a list of recipes and their build status saving it's state to a
@@ -157,7 +157,7 @@ class CookBook (object):
         @return: list of recipes
         @rtype: list
         '''
-        # @Sniper where is the recipers.values() 
+        # @Sniper where is the recipers.values() config file ?
         recipes = self.recipes.values()
         recipes.sort(key=lambda x: x.name)
         return recipes

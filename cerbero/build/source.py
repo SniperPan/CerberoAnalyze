@@ -19,6 +19,7 @@
 import os
 import shutil
 
+# @Sniper define functions to get source code
 from cerbero.config import Platform
 from cerbero.utils import git, svn, shell, _
 from cerbero.errors import FatalError, InvalidRecipeError
@@ -356,8 +357,7 @@ class Svn(Source):
 
 
 class SourceType (object):
-
-# Different source support
+	# @Sniper called in recipes with different source 
     CUSTOM = CustomSource
     TARBALL = Tarball
     LOCAL_TARBALL = LocalTarball

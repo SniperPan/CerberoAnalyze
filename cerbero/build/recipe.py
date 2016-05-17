@@ -23,9 +23,15 @@ import tempfile
 import time
 
 from cerbero.build import build, source
+
+# @Sniper supported in build/filesprovider.py:27 
 from cerbero.build.filesprovider import FilesProvider
 from cerbero.config import Platform
 from cerbero.errors import FatalError
+
+# @Sniper supported in ide/vs/genlib.py:25 
+# Generates an import library that can be used in VS from a DLL, 
+# using 'gendef' to create a .def file and than libtool to create the import library
 from cerbero.ide.vs.genlib import GenLib
 from cerbero.tools.osxuniversalgenerator import OSXUniversalGenerator
 from cerbero.utils import N_, _
@@ -65,7 +71,7 @@ class BuildSteps(object):
     '''
     Enumeration factory for build steps
     '''
-
+	# @Sniper here are the common steps of build
     FETCH = (N_('Fetch'), 'fetch')
     EXTRACT = (N_('Extract'), 'extract')
     CONFIGURE = (N_('Configure'), 'configure')
@@ -137,6 +143,7 @@ class Recipe(FilesProvider):
         self.deps = self.deps or []
         self.platform_deps = self.platform_deps or []
         self._steps = self._default_steps[:]
+		# @Sniper only when the target platform is WINDOWS will generates libs
         if self.config.target_platform == Platform.WINDOWS:
             self._steps.append(BuildSteps.GEN_LIBFILES)
         FilesProvider.__init__(self, config)

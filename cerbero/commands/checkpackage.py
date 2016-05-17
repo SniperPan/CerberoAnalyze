@@ -25,7 +25,7 @@ from cerbero.utils import _, N_, ArgparseArgument
 from cerbero.utils import messages as m
 from cerbero.packages.packagesstore import PackagesStore
 
-
+# @Sniper unused temporary
 class CheckPackage(Command):
     doc = N_('Run checks on a given package')
     name = 'checkpackage'

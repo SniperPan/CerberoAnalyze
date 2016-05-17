@@ -20,10 +20,19 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
 # USA.
 
+# @Sniper certdata.txt path https://mxr.mozilla.org/mozilla-central/source/security/nss/lib/ckfw/builtins/certdata.txt
+
+# base64 - RFC 3548: Base16, Base32, Base64 Data Encodings
+# Provides data encoding and decoding as specified in RFC 3548.
 import base64
+
+# os.path - Common pathname manipulations
 import os.path
 import re
 import sys
+
+# textwrap - Text wrapping and filling
+# Provides two convenience functions, wrap() and fill()
 import textwrap
 
 objects = []

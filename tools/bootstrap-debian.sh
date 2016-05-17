@@ -1,4 +1,5 @@
 #!/bin/sh
+# @Sniper for debian
 
 set -e
 

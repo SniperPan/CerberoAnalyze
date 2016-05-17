@@ -14,6 +14,7 @@ DISTRO_VERSION=$3
 ARCH=$4
 USER=$5
 
+# @Sniper log this path for tracing
 CHROOT_PATH=$CHROOT_PREFIX/$DISTRO-$DISTRO_VERSION-$ARCH
 
 die() {
@@ -23,10 +24,12 @@ die() {
 
 echo "bootstraping $DISTRO-$DISTRO_VERSION"
 
+# @Sniper make compatibility to yum and rpm 
 apt-get install yum rpm
 
 echo "installing mock"
 
+# @Sniper what's the difference between -e?
 set +e
 groupadd -r mock
 usermod -G $USER mock

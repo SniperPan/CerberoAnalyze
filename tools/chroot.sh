@@ -1,3 +1,5 @@
+# @Sniper ensure files related already be rooted
+
 #!/bin/sh
 
 set -e

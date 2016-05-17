@@ -2,7 +2,11 @@
 # Build the Windows cross and native toolchains for x86 and x86_64
 
 WIPE=$1
+
+# @Sniper where is the pwd? 
 CURDIR=`pwd`
+
+# @Sniper what does this mean?
 set -e
 
 for a in "w64" "w32"
@@ -26,6 +30,7 @@ do
     else
         PLAT=linux
     fi
+	# @Sniper combine the plat and arch, then download the tar.
     TC=mingw-$a-gcc-4.7.3-$PLAT-$ARCH.tar.xz
     echo "Creating tarball $TC"
     cd  ~/mingw/$PLAT/$a

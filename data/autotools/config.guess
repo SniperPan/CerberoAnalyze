@@ -1,3 +1,7 @@
+# @Sniper The intl/directory has platform dependent support for determing the locale's
+# character encoding and therefore needs to identify the platform.
+# https://www.gnu.org/software/gettext/manual/html_node/config_002eguess.html
+
 #! /bin/sh
 # Attempt to guess a canonical system name.
 #   Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,

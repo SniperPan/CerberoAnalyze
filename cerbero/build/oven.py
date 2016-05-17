@@ -130,7 +130,7 @@ class Oven (object):
             tmp = tempfile.NamedTemporaryFile()
 
         recipe.force = self.force
-		// @Sniper where is recipe.steps filled.?
+		# @Sniper where is recipe.steps filled.?
         for desc, step in recipe.steps:
             m.build_step(count, total, recipe.name, step)
             # check if the current step needs to be done

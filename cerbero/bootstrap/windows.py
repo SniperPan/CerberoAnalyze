@@ -17,6 +17,9 @@
 # Boston, MA 02111-1307, USA.
 
 import os
+
+# tempfile - Generate temporary files and directories
+# Works on all supported platforms
 import tempfile
 import shutil
 
@@ -46,6 +49,7 @@ class WindowsBootstrapper(BootstrapperBase):
     '''
 
     def start(self):
+		# @Sniper check_line_endings define in ./utils/git.py:227
         if not git.check_line_endings(self.config.platform):
             raise ConfigurationError("git is configured to use automatic line "
                     "endings conversion. You can fix it running:\n"

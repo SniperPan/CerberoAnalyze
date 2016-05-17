@@ -36,6 +36,9 @@ import tarfile
 import zipfile
 import tempfile
 import time
+
+# glob - Unix style pathname pattern expansion
+# Finds all the pathnames matching a specified pattern according to the rules used by the Unix shell.
 import glob
 import shutil
 import hashlib
@@ -223,7 +226,9 @@ def unpack(filepath, output_dir):
         raise FatalError("Unknown tarball format %s" % filepath)
 
 
-def download(url, destination=None, recursive=False, check_cert=True):
+# Change to be false to skip cert check		
+# def download(url, destination=None, recursive=False, check_cert=True):
+def download(url, destination=None, recursive=False, check_cert=False):
     '''
     Downloads a file with wget
 

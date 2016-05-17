@@ -1,3 +1,5 @@
+# @Sniper provides several commands for setup.py
+
 ifdef PREFIX
   PREFIX_ARGS='--prefix=$(PREFIX)'
 else

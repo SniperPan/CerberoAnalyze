@@ -26,6 +26,7 @@ import re
 
 
 class Build (object):
+	# basic step configure -> compile -> install -> check
     '''
     Base class for build handlers
 
@@ -74,18 +75,18 @@ class CustomBuild(Build):
         pass
 
 
-def modify_environment(func):
+	def modify_environment(func):
     ''' Decorator to modify the build environment '''
-    def call(*args):
-        self = args[0]
-        append_env = self.append_env
-        new_env = self.new_env.copy()
-        if self.use_system_libs and self.config.allow_system_libs:
-            self._add_system_libs(new_env)
-        old_env = self._modify_env(append_env, new_env)
-        res = func(*args)
-        self._restore_env(old_env)
-        return res
+		def call(*args):
+			self = args[0]
+			append_env = self.append_env
+			new_env = self.new_env.copy()
+			if self.use_system_libs and self.config.allow_system_libs:
+				self._add_system_libs(new_env)
+			old_env = self._modify_env(append_env, new_env)
+			res = func(*args)
+			self._restore_env(old_env)
+			return res
 
     call.func_name = func.func_name
     return call
@@ -339,7 +340,7 @@ class CMake (MakefilesBase):
 
 
 class BuildType (object):
-
+# @Sniper different recipe use different BuildType
     CUSTOM = CustomBuild
     MAKEFILE = MakefilesBase
     AUTOTOOLS = Autotools

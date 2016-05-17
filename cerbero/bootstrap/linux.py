@@ -16,6 +16,7 @@
 # Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 
+# @Sniper make compatible for different distro.
 from cerbero.bootstrap import BootstrapperBase
 from cerbero.bootstrap.bootstrapper import register_bootstrapper
 from cerbero.config import Platform, Architecture, Distro, DistroVersion
