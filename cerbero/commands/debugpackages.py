@@ -16,7 +16,14 @@
 # Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 
+# collections - High-performance container datatypes
+# Implements specialized container datatypes providing alternatives to Python's 
+# general purpose built-in containers, dict, list, set, and tuple.
 import collections
+
+# itertools - Functions creating iterators for efficient looping
+# Implements a number of iterator building blocks inspired by constructs from APL,
+# Haskell, and SML.
 import itertools
 
 from cerbero.commands import Command, register_command

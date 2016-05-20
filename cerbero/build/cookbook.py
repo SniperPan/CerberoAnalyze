@@ -271,7 +271,6 @@ class CookBook (object):
         @rtype: list
         '''
         recipe = self.get_recipe(recipe_name)
-        # @Sniper where is the _find_deps() function
         return self._find_deps(recipe, {}, [])
 
     def list_recipe_reverse_deps(self, recipe_name):
@@ -320,7 +319,6 @@ class CookBook (object):
             raise FatalError(_("Dependency Cycle"))
         state[recipe] = 'in-progress'
 
-        # @Sniper where is the list_deps() function, Check runtime deps also
         recipe_deps = recipe.list_deps()
         if not recipe.runtime_dep:
             recipe_deps = self._runtime_deps () + recipe_deps
@@ -349,7 +347,7 @@ class CookBook (object):
         self.recipes = {}
         recipes = defaultdict(dict)
 
-        # @Sniper where is the definition of _config.get_recipes_repos()
+        # config.py
         recipes_repos = self._config.get_recipes_repos()
         for reponame, (repodir, priority) in recipes_repos.iteritems():
             recipes[int(priority)].update(self._load_recipes_from_dir(repodir))

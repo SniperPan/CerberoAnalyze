@@ -18,6 +18,9 @@
 
 
 from cerbero.commands import Command, register_command
+
+# _ = gettext.gettext
+# N_ = lambda x: x
 from cerbero.utils import N_, _, ArgparseArgument
 from cerbero.bootstrap.bootstrapper import Bootstrapper
 

@@ -17,6 +17,9 @@
 # Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 
+# subprocess - Subprocess management
+# Allows you to spawn new processes, connect to their input/output/error pipes,
+# and obtain their return codes.
 import subprocess
 import os
 

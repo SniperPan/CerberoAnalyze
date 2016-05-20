@@ -22,6 +22,9 @@ import tarfile
 import tempfile
 
 from datetime import datetime
+
+# fnmatch - Unix filename pattern matching
+# Provides support for Unix shell-style wildcards, which are not the same as regular expressions.
 from fnmatch import fnmatch
 
 from cerbero.errors import EmptyPackageError

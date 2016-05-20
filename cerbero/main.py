@@ -52,7 +52,8 @@ import logging
 import traceback
 import os
 
-# @Sniper where is the config and commands modules ?
+# config ./cerbero/config.py
+# commands ./cerbero/commands/
 from cerbero import config, commands
 
 # errors -> ./cerbero/cerbero/errors.py
@@ -60,10 +61,10 @@ from cerbero import config, commands
 from cerbero.errors import UsageError, FatalError, BuildStepError, \
     ConfigurationError, CerberoException, AbortedError
 	
-# @Sniper _ N_ user_is_root means what?
+# _ = gettext.gettext
+# N_ = lambda x: x
+# user_is_root ./cerbero/utils/__init__.py 
 from cerbero.utils import _, N_, user_is_root
-
-# @Sniper what does the import as mean?
 from cerbero.utils import messages as m
 
 description = N_('Build and package a set of modules to distribute them in '
@@ -71,7 +72,6 @@ description = N_('Build and package a set of modules to distribute them in '
 
 class Main(object):
 
-	# @Sniper when and where called this __init__
     def __init__(self, args):
         if user_is_root():
             m.warning(_("Running as root"))
@@ -81,8 +81,6 @@ class Main(object):
 		
 		# Create a argument parser with none config .cbc base module argparse
         self.create_parser()
-		
-		# 
         self.load_commands()
         self.parse_arguments(args)
         self.load_config()
