@@ -9,51 +9,54 @@ class Recipe(custom.GStreamerStatic):
     extra_configure_options = "--enable-static"
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-base'}
     commit = 'origin/master'
-    deps = ['glib', 'gstreamer-1.0', 'libxml2', 'libogg', 'pango', 'libtheora',
-            'libvisual', 'libvorbis', 'zlib', 'orc', 'opus']
+    
+	#deps = ['glib', 'gstreamer-1.0', 'libxml2', 'libogg', 'pango', 'libtheora',
+    #        'libvisual', 'libvorbis', 'zlib', 'orc', 'opus']
+ 	deps = ['glib', 'gstreamer-1.0', 'libvisual', 'zlib']
+			
     platform_deps = {Platform.ANDROID: [ 'tremor' ], Platform.IOS: [ 'tremor' ] }
     use_system_libs = True
 
     files_plugins_core_devel = [
-             'libgstadder',
+             #'libgstadder',
              'libgstapp',
              'libgstaudioconvert',
-             'libgstaudiorate',
-             'libgstaudioresample',
-             'libgstaudiotestsrc',
-             'libgstgio',
-             'libgstpango',
-             'libgsttypefindfunctions',
+             #'libgstaudiorate',
+             #'libgstaudioresample',
+             #'libgstaudiotestsrc',
+             #'libgstgio',
+             #'libgstpango',
+             #'libgsttypefindfunctions',
              'libgstvideoconvert',
-             'libgstvideorate',
+             #'libgstvideorate',
              'libgstvideoscale',
-             'libgstvideotestsrc',
-             'libgstvolume',
+             #'libgstvideotestsrc',
+             #'libgstvolume',
     ]
 
     files_plugins_playback_devel = [
-             'libgstplayback',
+             #'libgstplayback',
             ]
 
     # Not used currently
     files_plugins_encoding_devel = [
-             'libgstencodebin',
+             #'libgstencodebin',
             ]
 
     files_plugins_codecs_devel = [
-             'libgstsubparse',
-             'libgstogg',
-             'libgsttheora',
-             'libgstvorbis',
-             'libgstopus',
+             #'libgstsubparse',
+             #'libgstogg',
+             #'libgsttheora',
+             #'libgstvorbis',
+             #'libgstopus',
             ]
 
     files_plugins_vis_devel = [
-             'libgstlibvisual',
+            # 'libgstlibvisual',
             ]
 
     files_plugins_net_devel = [
-            'libgsttcp',
+            #'libgsttcp',
     ]
 
     files_plugins_sys_devel = []

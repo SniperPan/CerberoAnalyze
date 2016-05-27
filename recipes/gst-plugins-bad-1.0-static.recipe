@@ -20,66 +20,69 @@ class Recipe(custom.GStreamerStatic):
         --disable-xvid --disable-zbar --disable-sdi --disable-qt'
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-bad'}
     commit = 'origin/master'
-    deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'bzip2', 'libass',
-            'faad2', 'libkate', 'zlib', 'openh264', 'opus', 'nettle', 'librtmp',
-            'libsrtp', 'schroedinger', 'libdca', 'libmms', 'libdvdnav',
-            'soundtouch', 'vo-aacenc', 'librsvg', 'openjpeg', 'graphene', 'spandsp']
+    #deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'bzip2', 'libass',
+    #        'faad2', 'libkate', 'zlib', 'openh264', 'opus', 'nettle', 'librtmp',
+    #        'libsrtp', 'schroedinger', 'libdca', 'libmms', 'libdvdnav',
+    #        'soundtouch', 'vo-aacenc', 'librsvg', 'openjpeg', 'graphene', 'spandsp']
+	deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'vo-aacenc']
+	
+			
     use_system_libs = True
 
     files_plugins_effects_devel = [
-             'libgstaccurip',
-             'libgstaiff',
-             'libgstaudiofxbad',
+             #'libgstaccurip',
+             #'libgstaiff',
+             #'libgstaudiofxbad',
              'libgstautoconvert',
-             'libgstbayer',
-             'libgstcoloreffects',
-             'libgstdebugutilsbad',
-             'libgstfieldanalysis',
-             'libgstfreeverb',
-             'libgstfrei0r',
-             'libgstgaudieffects',
-             'libgstgeometrictransform',
-             'libgstinter',
-             'libgstinterlace',
-             'libgstivtc',
-             'libgstrawparse',
-             'libgstremovesilence',
-             'libgstsegmentclip',
-             'libgstsmooth',
-             'libgstspeed',
-             'libgstsoundtouch',
-             'libgstvideofiltersbad',
-             'libgstaudiomixer',
-             'libgstcompositor',
+             #'libgstbayer',
+             #'libgstcoloreffects',
+             #'libgstdebugutilsbad',
+             #'libgstfieldanalysis',
+             #'libgstfreeverb',
+             #'libgstfrei0r',
+             #'libgstgaudieffects',
+             #'libgstgeometrictransform',
+             #'libgstinter',
+             #'libgstinterlace',
+             #'libgstivtc',
+             #'libgstrawparse',
+             #'libgstremovesilence',
+             #'libgstsegmentclip',
+             #'libgstsmooth',
+             #'libgstspeed',
+             #'libgstsoundtouch',
+             #'libgstvideofiltersbad',
+             #'libgstaudiomixer',
+             #'libgstcompositor',
     ]
 
     files_plugins_codecs_devel = [
-             'libgstadpcmdec',
-             'libgstadpcmenc',
-             'libgstdashdemux',
-             'libgstdvbsuboverlay',
-             'libgstdvdspu',
-             'libgsthls',
-             'libgstid3tag',
-             'libgstkate',
-             'libgstmidi',
-             'libgstmxf',
-             'libgstopenh264',
-             'libgstopusparse',
-             'libgstpcapparse',
-             'libgstpnm',
-             'libgstrfbsrc',
-             'libgstschro',
-             'libgstsiren',
-             'libgstsmoothstreaming',
-             'libgstsubenc',
-             'libgstvideoparsersbad',
-             'libgsty4mdec',
-             'libgstjpegformat',
-             'libgstgdp',
-             'libgstrsvg',
-             'libgstopenjpeg',
-             'libgstspandsp',
+             #'libgstadpcmdec',
+             #'libgstadpcmenc',
+             #'libgstdashdemux',
+             #'libgstdvbsuboverlay',
+             #'libgstdvdspu',
+             #'libgsthls',
+             #'libgstid3tag',
+             #'libgstkate',
+             #'libgstmidi',
+             #'libgstmxf',
+             #'libgstopenh264',
+             #'libgstopusparse',
+             #'libgstpcapparse',
+             #'libgstpnm',
+             #'libgstrfbsrc',
+             #'libgstschro',
+             #'libgstsiren',
+             #'libgstsmoothstreaming',
+             #'libgstsubenc',
+             #'libgstvideoparsersbad',
+             #'libgsty4mdec',
+             #'libgstjpegformat',
+             #'libgstgdp',
+             #'libgstrsvg',
+             #'libgstopenjpeg',
+             #'libgstspandsp',
     ]
 
     platform_files_plugins_codecs_devel = {
@@ -89,37 +92,37 @@ class Recipe(custom.GStreamerStatic):
     }
 
     files_plugins_codecs_gpl_devel = [
-             'libgstassrender',
+             #'libgstassrender',
     ]
 
     files_plugins_codecs_restricted_devel = [
-             'libgstasfmux',
-             'libgstdtsdec',
-             'libgstfaad',
-             'libgstmpegpsdemux',
-             'libgstmpegpsmux',
-             'libgstmpegtsdemux',
-             'libgstmpegtsmux',
+             #'libgstasfmux',
+             #'libgstdtsdec',
+             #'libgstfaad',
+             #'libgstmpegpsdemux',
+             #'libgstmpegpsmux',
+             #'libgstmpegtsdemux',
+             #'libgstmpegtsmux',
              'libgstvoaacenc'
     ]
 
     files_plugins_dvd_devel = [
-             'libgstresindvd',
+             #'libgstresindvd',
     ]
 
     files_plugins_net_devel = [
-             'libgstdataurisrc',
-             'libgstsdpelem',
-             'libgstsrtp',
+             #'libgstdataurisrc',
+             #'libgstsdpelem',
+             #'libgstsrtp',
     ]
 
     files_plugins_net_restricted_devel = [
-             'libgstmms',
-             'libgstrtmp',
+             #'libgstmms',
+             #'libgstrtmp',
     ]
 
     files_plugins_capture_devel = [
-             'libgstcamerabin2',
+             #'libgstcamerabin2',
             ]
 
 
@@ -135,17 +138,17 @@ class Recipe(custom.GStreamerStatic):
     }
 
     files_plugins_vis_devel = [
-             'libgstaudiovisualizers',
+             #'libgstaudiovisualizers',
             ]
 
     platform_files_plugins_sys_devel = {
         Platform.LINUX: [
              'libgstshm',
-             'libgstopengl',
+             #'libgstopengl',
              'libgstdecklink',
             ],
         Platform.WINDOWS: [
-             'libgstd3dvideosink',
+             #'libgstd3dvideosink',
              'libgstwasapi',
              'libgstopengl',
             ],

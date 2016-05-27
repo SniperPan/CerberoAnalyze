@@ -13,7 +13,7 @@ class Recipe(custom.GStreamerStatic):
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'gst-plugins-good-1.0', 'gst-validate']
 
-    files_plugins_ges_devel = ['libgstnle']
+    files_plugins_ges_devel = []
 
     def prepare(self):
         self.append_env['CFLAGS'] = " -Wno-error "

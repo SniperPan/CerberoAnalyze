@@ -9,27 +9,28 @@ class Recipe(recipe.Recipe):
     configure_options = "--disable-examples --disable-iec958 --disable-mpegstream --disable-cdio --disable-sidplay --disable-twolame "
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly'}
     commit = 'origin/master'
-    deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'a52dec', 'opencore-amr',
-            'libdvdread', 'libmpeg2', 'libmad', 'x264', 'lame', 'mpg123']
-
+    #deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'a52dec', 'opencore-amr',
+    #        'libdvdread', 'libmpeg2', 'libmad', 'x264', 'lame', 'mpg123']
+	deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'x264']
+	
     files_plugins_codecs_restricted = [
-             'lib/gstreamer-1.0/libgsta52dec%(mext)s',
-             'lib/gstreamer-1.0/libgstamrnb%(mext)s',
-             'lib/gstreamer-1.0/libgstamrwbdec%(mext)s',
-             'lib/gstreamer-1.0/libgstasf%(mext)s',
-             'lib/gstreamer-1.0/libgstdvdsub%(mext)s',
-             'lib/gstreamer-1.0/libgstdvdlpcmdec%(mext)s',
-             'lib/gstreamer-1.0/libgstmad%(mext)s',
-             'lib/gstreamer-1.0/libgstmpeg2dec%(mext)s',
-             'lib/gstreamer-1.0/libgstxingmux%(mext)s',
-             'lib/gstreamer-1.0/libgstrmdemux%(mext)s',
+             #'lib/gstreamer-1.0/libgsta52dec%(mext)s',
+             #'lib/gstreamer-1.0/libgstamrnb%(mext)s',
+             #'lib/gstreamer-1.0/libgstamrwbdec%(mext)s',
+             #'lib/gstreamer-1.0/libgstasf%(mext)s',
+             #'lib/gstreamer-1.0/libgstdvdsub%(mext)s',
+             #'lib/gstreamer-1.0/libgstdvdlpcmdec%(mext)s',
+             #'lib/gstreamer-1.0/libgstmad%(mext)s',
+             #'lib/gstreamer-1.0/libgstmpeg2dec%(mext)s',
+             #'lib/gstreamer-1.0/libgstxingmux%(mext)s',
+             #'lib/gstreamer-1.0/libgstrmdemux%(mext)s',
              'lib/gstreamer-1.0/libgstx264%(mext)s',
-             'lib/gstreamer-1.0/libgstlame%(mext)s',
-             'lib/gstreamer-1.0/libgstmpg123%(mext)s',
+             #'lib/gstreamer-1.0/libgstlame%(mext)s',
+             #'lib/gstreamer-1.0/libgstmpg123%(mext)s',
     ]
 
     files_plugins_dvd = [
-             'lib/gstreamer-1.0/libgstdvdread%(mext)s',
+             #'lib/gstreamer-1.0/libgstdvdread%(mext)s',
     ]
 
     files_lang = ['gst-plugins-ugly-1.0']

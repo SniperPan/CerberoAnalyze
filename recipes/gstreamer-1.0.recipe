@@ -29,7 +29,8 @@ class Recipe(recipe.Recipe):
 
     files_bins = ['gst-inspect-1.0',
                   'gst-typefind-1.0',
-                  'gst-launch-1.0']
+                  'gst-launch-1.0'
+				  ]
 
     files_libs = ['libgstbase-1.0', 'libgstcontroller-1.0',
                   'libgstnet-1.0', 'libgstreamer-1.0']

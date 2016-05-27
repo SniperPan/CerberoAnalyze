@@ -16,14 +16,17 @@ class Package(package.Package):
     uuid = 'a2e545d5-7819-4636-9e86-3660542f08e5'
     deps = ['gstreamer-1.0-core', 'base-crypto']
 
-    files = ['flac:libs', 'libkate:libs', 'libdv:libs',
-            'libogg:libs', 'schroedinger:libs', 'speex:libs',
-            'libtheora:libs', 'wavpack:libs', 'libvpx:libs',
-            'taglib:libs', 'opus:libs', 'libvorbis:libs',
-            'openjpeg:libs', 'openh264:libs', 'spandsp:libs',
-            'gst-plugins-base-1.0:plugins_codecs', 'gst-plugins-good-1.0:plugins_codecs',
-            'gst-plugins-bad-1.0:plugins_codecs', 'gst-plugins-ugly-1.0:plugins_codecs',
-            ]
+    #files = ['flac:libs', 'libkate:libs', 'libdv:libs',
+    #        'libogg:libs', 'schroedinger:libs', 'speex:libs',
+    #        'libtheora:libs', 'wavpack:libs', 'libvpx:libs',
+    #        'taglib:libs', 'opus:libs', 'libvorbis:libs',
+    #        'openjpeg:libs', 'openh264:libs', 'spandsp:libs',
+    #        'gst-plugins-base-1.0:plugins_codecs', 'gst-plugins-good-1.0:plugins_codecs',
+    #        'gst-plugins-bad-1.0:plugins_codecs', 'gst-plugins-ugly-1.0:plugins_codecs',
+    #        ]
+	files = ['gst-plugins-base-1.0:plugins_codecs', 'gst-plugins-good-1.0:plugins_codecs',
+			 'gst-plugins-bad-1.0:plugins_codecs', 'gst-plugins-ugly-1.0:plugins_codecs']
+			
     files_devel = ['gst-plugins-base-1.0-static:plugins_codecs_devel',
             'gst-plugins-good-1.0-static:plugins_codecs_devel',
             'gst-plugins-bad-1.0-static:plugins_codecs_devel',

@@ -16,7 +16,7 @@ class Recipe(recipe.Recipe):
     files_libs = ['libges-1.0']
     files_typelibs = ['GES-1.0']
 
-    files_plugins_ges = [ 'lib/gstreamer-1.0/libgstnle%(mext)s' ]
+    files_plugins_ges = [ ]
 
 #    files_python = ['site-packages/ges%(pext)s']
 

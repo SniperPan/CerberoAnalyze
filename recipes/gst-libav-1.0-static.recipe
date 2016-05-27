@@ -15,9 +15,9 @@ class Recipe(custom.GStreamerStatic):
     extra_configure_options = "--enable-static --enable-lgpl --disable-example"
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-libav'}
     commit = 'origin/master'
-    deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'bzip2', 'zlib' ]
+    deps = ['gstreamer-1.0', 'gst-plugins-base-1.0']
 
-    files_plugins_codecs_restricted_devel = ['libgstlibav']
+    files_plugins_codecs_restricted_devel = [] #['libgstlibav']
 
     def prepare(self):
         self.append_env['CFLAGS'] = " -Wno-error "
